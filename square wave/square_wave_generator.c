@@ -1,7 +1,9 @@
-// Author: Siyuan Tian (tiansy97), Ruiqi Hu
-// Time: 2018/10
-// The code generates a square wave and changes its frequency by pressing 
-// switches. It also displays the current period of the wave on 7-segment LEDs
+/*
+Author: Siyuan Tian (tiansy97), Ruiqi Hu
+Time: 2018/10
+Functions: The code generates a square wave and changes its frequency by pressing switches. 
+It also displays the current period of the wave on 7-segment LEDs.
+*/
 
 #include<reg51.h>
 #define uchar unsigned char
@@ -73,7 +75,7 @@ void Initialize(void)
     period = 25;
 
 
-    TMOD=0x01;				//Timer0£ºGate 0£¬Method 1
+    TMOD=0x01;				//Timer0ï¼ŒGate 0ï¼ŒMethod 1
     IT0=1;				   
     EX0=1;
     ET0=1;

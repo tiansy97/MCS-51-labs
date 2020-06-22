@@ -1,4 +1,5 @@
-// Author: Siyuan Tian, Ruiqi Hu
+// Author: Siyuan Tian (tiansy97), Ruiqi Hu
+// Time: 2018/10
 
 #include<reg51.h>
 #define uchar unsigned char

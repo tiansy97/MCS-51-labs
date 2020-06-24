@@ -1,8 +1,9 @@
 /*
-Author: Siyuan Tian (tiansy97), Ruiqi Hu
-Time: 2018/10
-Functions: The code generates a square wave and changes its frequency by pressing switches. 
-It also displays the current period of the wave on 7-segment LEDs.
+Author:     Siyuan Tian (tiansy97), Ruiqi Hu
+Time:       2018/10
+Functions:  The code generates a square wave and changes its frequency by pressing switches. 
+            It also displays the current period of the wave on 7-segment LEDs.
+Concepts:   I/O port, digital signal, timer and timer interrupt, segment displays, etc  
 */
 
 #include<reg51.h>
@@ -16,7 +17,7 @@ It also displays the current period of the wave on 7-segment LEDs.
 
 sbit SW1=P1^0;    //Increase 5ms by pressing switch 1
 sbit SW2=P1^1;       //Decrease 5ms by pressing switch 2
-sbit OUTPUT=P1^5;     //Output Port
+sbit OUTPUT=P1^5;     //Output port
 uchar TIMER0_L, TIMER0_H;
 uint period;
 uchar  xdata  *pdg;		//Pointer used to display numbers on LED

@@ -8,9 +8,9 @@ Concepts:   Serial communication, timer and timer interrupt, BCD (Binary-Coded D
             segment displays, etc  
 */
 
-// #include<reg51.h>
-// #include<intrins.h>
-// #include<absacc.h>
+#include<reg51.h>
+#include<intrins.h>
+#include<absacc.h>
 
 #define uchar unsigned char
 #define uint  unsigned int 

@@ -1,6 +1,16 @@
-#include<reg51.h>
-#include<intrins.h>
-#include<absacc.h>
+/*
+Author:     Siyuan Tian (tiansy97), Ruiqi Hu
+Time:       2018/10
+Functions:  The code enables bidirectional serial communication between the microcontroller
+            and the PC. The MCU transmits a string to the computer about every 3 seconds, and 
+            it receives 8-bit numbers from the PC. It then decodes them and displays on LEDs.   
+Concepts:   Serial communication, timer and timer interrupt, BCD (Binary-Coded Decimals), 
+            segment displays, etc  
+*/
+
+// #include<reg51.h>
+// #include<intrins.h>
+// #include<absacc.h>
 
 #define uchar unsigned char
 #define uint  unsigned int 

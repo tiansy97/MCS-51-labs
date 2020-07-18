@@ -102,6 +102,7 @@ void Initialize(void)
 	TR0 = 1;
 }
 
+
 void Receive(void)
 {
 	RI = 0;	

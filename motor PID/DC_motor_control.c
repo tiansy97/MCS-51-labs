@@ -8,6 +8,7 @@ Concepts:   Motor speed measurement, PID control, Serial communication, timer an
             external interrupt, segment displays, etc  
 */
 
+
 #include <stdio.h>
 #include <reg51.h>
 #include <absacc.h>
@@ -33,6 +34,7 @@ struct PIDcontrol
       uchar D;
 }
 PIDcon = {50,15,0};
+
 
 int Speed(int);
 int PID(void);
@@ -82,23 +84,23 @@ void main()
 
     while (1)
     {          
-    if (RI)   
+        if (RI)   
         {
-         Receive();
-         TI=1;
-         printf("The current command speed is %d\n",comm);
-         TI=0;
+            Receive();
+            TI=1;
+            printf("The current command speed is %d\n",comm);
+            TI=0;
         }
-    if (mark)
+        if (mark)
         {
-          m = PID();    // Update m trough PID control (once for every period of the PWM)
-          mark = 0;
+            m = PID();    // Update m trough PID control (once for every period of the PWM)
+            mark = 0;
         }
-	
-    // Generate PWM wave
-    if(PWM < m) P15 = 1;
-    else P15 = 0;
-    Display();
+    	
+        // Generate PWM wave
+        if(PWM < m) P15 = 1;
+        else P15 = 0;
+        Display();
     }
 }
 
@@ -170,28 +172,28 @@ int PID(void)                //PID control
 
 void Display()    // Display the current speed and the command speed
 {
-int Comma,Commb,Curra,Currb;
+    int Comma,Commb,Curra,Currb;
 
-Comma = comm/10;
-Commb = comm%10;
-Curra = curr/10;
-Currb = curr%10;
-XBYTE[0x7ff8]=table[Currb];
-Delay(10);
-XBYTE[0x7ff9]=table[Curra];
-Delay(10);
-XBYTE[0x7ffa]=table[Commb];
-Delay(10);
-XBYTE[0x7ffb]=table[Comma];
-Delay(10);
+    Comma = comm/10;
+    Commb = comm%10;
+    Curra = curr/10;
+    Currb = curr%10;
+    XBYTE[0x7ff8]=table[Currb];
+    Delay(10);
+    XBYTE[0x7ff9]=table[Curra];
+    Delay(10);
+    XBYTE[0x7ffa]=table[Commb];
+    Delay(10);
+    XBYTE[0x7ffb]=table[Comma];
+    Delay(10);
 }
 
 
 void Delay(uchar n)
 {
-uchar i;
-while (n--)
+    uchar i;
+    while (n--)
     {
-     for (i = 255; i> 0; i--);
+        for (i = 255; i> 0; i--);
     }
 }

@@ -8,6 +8,7 @@ Functions:  The system measures the room temperature using a temperature sensor.
 Concepts:   Sensor circuit design, A/D conversion, digital filtering, segment displays, etc  
 */
 
+
 #include<reg51.h>
 #include<intrins.h>
 #include<absacc.h>

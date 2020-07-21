@@ -7,6 +7,7 @@ Functions:  The code generates a sine wave and changes its amplitude by pressing
 Concepts:   I/O port, D/A conversion, timer and timer interrupt, segment displays, etc  
 */
 
+
 #include<reg52.h>
 #include<intrins.h>
 #include<absacc.h>
@@ -161,8 +162,8 @@ void main()
 			ampref = (float)amp/VMAX;    //The ratio of the current amplitude and the max amplitude
             if (amp > 10) 
 			{
-			amp = 5;
-			ampref = (float)amp/VMAX;
+    			amp = 5;
+    			ampref = (float)amp/VMAX;
 			}
             Display();
         }
@@ -172,8 +173,8 @@ void main()
 			ampref = (float)amp/VMAX;
             if (amp < 5) 
 			{
-			amp = 10;
-			ampref = (float)amp/VMAX;
+    			amp = 10;
+    			ampref = (float)amp/VMAX;
 			}
             Display();
         }   

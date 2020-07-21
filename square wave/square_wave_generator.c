@@ -6,6 +6,7 @@ Functions:  The code generates a square wave and changes its frequency by pressi
 Concepts:   I/O port, digital signal, timer and timer interrupt, segment displays, etc  
 */
 
+
 #include<reg51.h>
 #define uchar unsigned char
 #define uint unsigned int
@@ -22,6 +23,7 @@ uchar TIMER0_L, TIMER0_H;
 uint period;
 uchar  xdata  *pdg;		//Pointer used to display numbers on LED
 uchar table[10] = {0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+
 
 void delay(uchar);
 void Initialize(void);

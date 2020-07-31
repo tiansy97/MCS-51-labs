@@ -9,18 +9,22 @@ Functions:  The code reads the data from ADC which is connected to an IR sensor 
 #include "reg52.h"			 
 #include "XPT2046.h"	
 
-typedef unsigned int u16;	  
-typedef unsigned char u8;
+typedef unsigned int uint;	  
+typedef unsigned char uchar;
 
 sbit LSA=P2^2;
 sbit LSB=P2^3;
 sbit LSC=P2^4;
 
-u8 disp[4];
-u8 code smgduan[10]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
+uchar disp[4];
+uchar code smgduan[10]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
+
+uint Read_AD_Data(uchar);
+void SPI_Write(uchar);
+uint SPI_Read(void);
 
 
-void delay(u16 i)
+void delay(uint i)
 {
 	while(i--);	
 }
@@ -29,8 +33,8 @@ void delay(u16 i)
 //Data processing
 void datapros()
 {
-	u16 temp;
-	static u8 i;
+	uint temp;
+	static uchar i;
 
 	if(i==50)
 	{
@@ -84,8 +88,9 @@ void main()
 
 void SPI_Write(uchar dat)
 {
-	uchar i;
+	u8 i;
 	CLK = 0;
+
 	for(i=0; i<8; i++)
 	{
 		DIN = dat >> 7;  	
@@ -96,7 +101,7 @@ void SPI_Write(uchar dat)
 }
 
 
-uint SPI_Read(void)
+uint SPI_Read()
 {
 	uint i, dat=0;
 
